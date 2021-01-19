@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Blog from '../views/blog'
+import Show from '../views/blog/Show'
+import Page404 from '../views/Page404'
+
+
 
 const routes = [
   {
@@ -18,6 +22,16 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: Blog
+  },
+  {
+    path: '/blog/:id/:slug',
+    name: 'show-post',
+    component: Show,
+    props: true
+  },
+  {
+    path: '/:catchAll(.*)',
+    component: Page404
   }
 ]
 
