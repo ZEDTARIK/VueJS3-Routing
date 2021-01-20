@@ -4,9 +4,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 mx-auto my-2">
-        <button @click="previous()" class="btn btn-success btn-sm">Previous</button>
+        <!-- <button @click="previous()" class="btn btn-success btn-sm">Previous</button>
         <button @click="redirect()" class="btn btn-primary btn-sm">Redirect</button>
-        <button @click="next()" class="btn btn-warning btn-sm">Next</button>
+        <button @click="next()" class="btn btn-warning btn-sm">Next</button> -->
       </div>
     </div>
     <router-view />

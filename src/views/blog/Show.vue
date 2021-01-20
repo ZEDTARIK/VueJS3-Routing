@@ -1,9 +1,9 @@
 <template>
-  <h2>Show Post</h2>
   <div class="card" v-if="post">
     <div class="card-body">
       <h4 class="card-title">{{ post.title }}</h4>
       <p class="card-text">{{ post.body }}</p>
+      
     </div>
   </div>
 

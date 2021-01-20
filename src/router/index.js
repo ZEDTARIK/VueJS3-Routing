@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Blog from '../views/blog'
 import Show from '../views/blog/Show'
+import AddPost from '../views/blog/AddPost'
 import Page404 from '../views/Page404'
 
 
@@ -28,6 +29,10 @@ const routes = [
     name: 'show-post',
     component: Show,
     props: true
+  },
+  {
+    path: '/blog/new',
+    component: AddPost,
   },
   {
     path: '/:catchAll(.*)',
