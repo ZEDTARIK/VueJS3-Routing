@@ -1,23 +1,28 @@
 <template>
   <h2>Show Post</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit sunt
-    atque commodi laudantium illum doloribus assumenda voluptatibus delectus
-    nesciunt!
-  </p>
+  <div class="card" v-if="post">
+    <div class="card-body">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <p class="card-text">{{ post.body }}</p>
+    </div>
+  </div>
 
-  <pre>
-      Params id : {{ id }}
-      Params Slug : {{ slug }}
-  </pre>
+  <div class="text-center" v-else>Loading ....</div>
 </template>
 
 <script>
 export default {
-  props:['id', 'slug'],
+  props: ["id", "slug"],
   data() {
     return {
+      post: null,
     };
+  },
+  mounted() {
+    fetch(`http://localhost:3000/posts/${this.id}`)
+      .then((res) => res.json())
+      .then((data) => (this.post = data))
+      .catch((err) => console.log(err));
   },
 };
 </script>
