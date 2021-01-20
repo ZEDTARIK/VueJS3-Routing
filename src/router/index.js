@@ -4,9 +4,8 @@ import About from '../views/About.vue'
 import Blog from '../views/blog'
 import Show from '../views/blog/Show'
 import AddPost from '../views/blog/AddPost'
+import EditPost from '../views/blog/EditPost'
 import Page404 from '../views/Page404'
-
-
 
 const routes = [
   {
@@ -25,9 +24,16 @@ const routes = [
     component: Blog
   },
   {
-    path: '/blog/:id/:slug',
+    path: '/blog/:id',
     name: 'show-post',
     component: Show,
+    props: true
+  },
+  ,
+  {
+    path: '/blog/edit/:id',
+    name: 'edit-post',
+    component: EditPost,
     props: true
   },
   {

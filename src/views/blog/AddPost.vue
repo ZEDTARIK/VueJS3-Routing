@@ -10,15 +10,15 @@
 
               <div class="form-group row">
                 <label for="Title">Title:</label>
-                <input type="text" class="form-control" id="Title" placeholder="Title">
+                <input v-model="title" type="text" class="form-control" id="Title" placeholder="Title">
               </div>
 
               <div class="form-group row">
                 <label for="Body">Body:</label>
-                <textarea class="form-control" id="Body" cols="5" rows="3"></textarea>
+                <textarea v-model="body" class="form-control" id="Body" cols="5" rows="3"></textarea>
               </div>
 
-              <button class="btn btn-success  btn-block">Submit</button>
+              <button type="submit" class="btn btn-success  btn-block">Submit</button>
 
             </form>
 
@@ -31,9 +31,30 @@
 
 <script>
 export default {
+  data() {
+    return {
+      title: '',
+      body: ''
+    }
+  },
 methods: {
   onSubmit() {
-    
+    let post = {
+        id: Math.floor(Math.random(56)*74),
+        title: this.title,
+        slug: this.title.split(' ').join('-'), // replace space with -
+        body: this.body
+      }
+
+   fetch('http://localhost:3000/posts', 
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body : JSON.stringify(post)
+    }
+    )
+    .then(()=> this.$router.push('/blog') )
+    .catch(err => console.log(err))
   }
 }
 }

@@ -6,11 +6,11 @@
 
       <div class="my-3">
         <router-link
-          :to="{ name: 'show-post', params: { id: post.id, slug: post.slug } }"
+          :to="{ name: 'show-post', params: { id: post.id} }"
           class="btn btn-sm btn-info">
           Show
         </router-link>
-        <button class="btn btn-sm btn-warning ml-3">Update</button>
+        <router-link :to="{name: 'edit-post', params: { id: post.id }}" class="btn btn-sm btn-warning ml-3">Update</router-link>
         <button class="btn btn-sm btn-danger ml-3" @click="onDelete()">Delete</button>
       </div>
 
